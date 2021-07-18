@@ -100,7 +100,8 @@ local input = {
 }
 
 local function on_tick()
-    if not spellbook:can_cast(SLOT_Q) then return end
+    if spellbook:can_cast(SLOT_Q) or not
+        pred:is_loaded() then return end
     for _, unit in ipairs(game.players) do
         if unit.is_valid and unit.is_enemy then
             local output = pred:get_prediction(input, unit)

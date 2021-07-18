@@ -698,7 +698,7 @@ function Pred:__init(delay, buffer)
 	for _, unit in ipairs(self.units) do self:ResetData(unit) end
 	client:set_event_callback("on_tick", function(...) self:OnTick(...) end)
 	client:set_event_callback("on_new_path", function(...) self:OnNewPath(...) end)
-	--client:set_event_callback("on_process_spell", function(...) self:OnProcessSpell(...) end)
+	client:set_event_callback("on_process_spell", function(...) self:OnProcessSpell(...) end)
 	client:set_event_callback("on_stop_cast", function(...) self:OnStopCast(...) end)
 	self.loaded = true
 end
@@ -1385,7 +1385,7 @@ end
 --------------------
 -- Prediction API --
 
-local prediction = Pred:New(0.067, 25)
+local prediction = Pred:New(0.034, 30)
 
 _G.Prediction = {
 	calc_aa_damage_to_minion = function(self, source, minion)
