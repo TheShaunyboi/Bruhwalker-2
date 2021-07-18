@@ -2,9 +2,10 @@
 
 ## Prediction Input
 
-Determines the skillshot input needed for prediction process.
+Determines the skillshot input needed for prediction process.  
+The "[unit]" type stands for game_object or Vec3 type.
 
-* source - the unit that the skillshot will be launched from **[game_object/Vec3]**
+* source - the unit that the skillshot will be launched from **[unit]**
 * hitbox - indicates if the unit bounding radius should be included in calculations **[boolean]**
 * speed - the skillshot speed in units per second **[number]**
 * range - the skillshot range in units **[number]**
@@ -13,7 +14,7 @@ Determines the skillshot input needed for prediction process.
 * angle - the skillshot angle (for conic skillshots) **[number]**
 * collision - determines the collision flags for the skillshot **[table]**:
   * "minion", "ally_hero", "enemy_hero", "wind_wall", "terrain_wall"
-* type - the skillshot type: ({"linear", "circular", "conic"})[x]
+* type - the skillshot type: ({"linear", "circular", "conic"})[x] **[string]**
 
 ## Prediction Output
 
@@ -42,11 +43,11 @@ Determines the final prediction output for given skillshot input and target.
 * **_get_aoe_prediction(prediction_input input, game_object unit)_ [prediction_output]**  
   Returns the area of effect prediction output for given input and unit.
 
-* **_get_aoe_position(prediction_input input, table<game_object/Vec3> points, game_object/Vec3 star)_ [{position, hit_count}]**  
+* **_get_aoe_position(prediction_input input, table<unit> points, unit star)_ [{position, hit_count}]**  
   Calculates the area of effect position for given input and table of targets.  
   You can use a third optional parameter which defines a "star target" that is **always included** in output.
 
-* **_get_collision(prediction_input input, Vec3 end_pos, game_object exclude)_ [table<game_object/Vec3>]**  
+* **_get_collision(prediction_input input, Vec3 end_pos, game_object exclude)_ [table<unit>]**  
   Returns the list of the units that the skillshot will hit before reaching the set end position.
 
 * **_get_position_after(game_object unit, number delta, boolean skip_latency)_ [Vec3]**  
