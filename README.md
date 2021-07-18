@@ -36,54 +36,54 @@ Determines the final prediction output for given skillshot input and target.
 
 ## API
 
-* **calc_aa_damage_to_minion(game_object source, game_object minion) _[number]_**  
+* **_calc_aa_damage_to_minion(game_object source, game_object minion)_ [number]**  
   Calculates the auto-attack damage to minion target and returns it.
 
-* **get_aoe_prediction(prediction_input input, game_object unit) _[prediction_output]_**  
+* **_get_aoe_prediction(prediction_input input, game_object unit)_ [prediction_output]**  
   Returns the area of effect prediction output for given input and unit.
 
-* **get_aoe_position(prediction_input input, table<game_object/Vec3> points, game_object/Vec3 star*) _[{position, hit_count}]_**  
+* **_get_aoe_position(prediction_input input, table<game_object/Vec3> points, game_object/Vec3 star)_ [{position, hit_count}]**  
   Calculates the area of effect position for given input and table of targets.  
   You can use a third optional parameter which defines a "star target" that is **always included** in output.
 
-* **get_collision(prediction_input input, Vec3 end_pos, game_object exclude) _[table<game_object/Vec3>]_**  
+* **_get_collision(prediction_input input, Vec3 end_pos, game_object exclude)_ [table<game_object/Vec3>]**  
   Returns the list of the units that the skillshot will hit before reaching the set end position.
 
-* **get_position_after(game_object unit, number delta, boolean skip_latency*) _[Vec3]_**  
+* **_get_position_after(game_object unit, number delta, boolean skip_latency)_ [Vec3]**  
   Returns the position where the unit will be after a set time. When the **skip_latency**  
   parameter is not used, it will increase the set time due to the latency and server tick.
 
-* **get_health_prediction(game_object unit, number delta) _[number]_**  
+* **_get_health_prediction(game_object unit, number delta)_ [number]**  
   Returns the unit health after a set time. Health prediction supports enemy minions only.
 
-* **get_lane_clear_health_prediction(game_object unit, number delta) _[number]_**  
+* **_get_lane_clear_health_prediction(game_object unit, number delta)_ [number]**  
   Returns the unit health after a set time assuming that the past auto-attacks are periodic.
 
-* **get_prediction(prediction_input input, game_object unit) _[prediction_output]_**  
+* **_get_prediction(prediction_input input, game_object unit)_ [prediction_output]**  
   Returns the general prediction output for given input and unit.
 
-* **get_immobile_duration(game_object unit) _[number]_**  
+* **_get_immobile_duration(game_object unit)_ [number]**  
   Returns the duration of the unit's immobilility.
 
-* **get_invisible_duration(game_object unit) _[number]_**  
+* **_get_invisible_duration(game_object unit)_ [number]**  
   Returns the duration of the unit's invisibility or fog of war state.
 
-* **get_invulnerable_duration(game_object unit) _[number]_**  
+* **_get_invulnerable_duration(game_object unit)_ [number]**  
   Returns the duration of the unit's invulnerability (supports champions only)
 
-* **get_movement_speed(game_object unit) _[number]_**  
+* **_get_movement_speed(game_object unit)_ [number]**  
   Returns the unit's movement speed (also supports dashing speed).
 
-* **get_waypoints(game_object unit) _[table<Vec3>]_**  
+* **_get_waypoints(game_object unit)_ [table<Vec3>]**  
   Returns the current moving path of the unit (also works in fog of war state).
 
-* **is_loaded()**  
+* **_is_loaded()_**  
   Indicates if prediction library has been loaded successfully.
 
-* **set_collision_buffer(number buffer)**  
+* **_set_collision_buffer(number buffer)_**  
   Sets the additional collision buffer for **get_collision** calculations.
 
-* **set_internal_delay(number delay)**  
+* **_set_internal_delay(number delay)_**  
   Sets the internal delay for prediction calculations.
 
 ## Example (Ezreal Q)
