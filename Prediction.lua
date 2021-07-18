@@ -22,6 +22,7 @@
 	> pred_pos - the predicted unit position [Vec3]
 	> hit_chance - the calculated skillshot hit chance [number]
 	> hit_count - the area of effect hit count [number]
+	> time_to_hit - the total skillshot arrival time [number]
 
 	hit_chance:
 	> -2 - impossible prediction, the unit is unpredictable
